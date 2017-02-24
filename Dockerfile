@@ -7,8 +7,10 @@
 FROM cogniteev/oracle-java 
 
 ADD edas-config-center /server
-RUN chmod u+x /server/startup.sh
+
+EXPOSE 8080
+EXPOSE 9600
 
 WORKDIR /server
+ENTRYPOINT ["java", "-jar", "edas-config-center.jar"]
 
-CMD "/server/startup.sh"
